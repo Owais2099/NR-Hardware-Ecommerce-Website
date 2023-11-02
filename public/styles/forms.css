@@ -1,0 +1,48 @@
+form hr {
+  border-color: var(--color-primary-200-contrast);
+  margin: var(--space-4);
+}
+
+label {
+  color: var(--color-primary-500-contrast);
+  display: block;
+  font-weight: 600;
+  margin-bottom: var(--space-2);
+}
+
+input,
+textarea,
+select {
+  font: inherit;
+  padding: var(--space-2);
+  border-radius: var(--border-radius-small);
+  border: none;
+  width: 90%;
+  font-family: inherit;
+  color: inherit;
+  background-color: var(--color-gray-200);
+  box-shadow: var(--shadow-small);
+}
+
+.form-alt input,
+.form-alt textarea,
+.form-alt select {
+  box-shadow: var(--shadow-medium);
+}
+
+#image-upload-control {
+  display: flex;
+  align-items: center;
+}
+
+#image-upload-control input {
+  max-width: 18rem;
+}
+
+#image-upload-control img {
+  display: none;
+  width: 4rem;
+  height: 4rem;
+  object-fit: cover;
+  border-radius: var(--border-radius-small);
+}

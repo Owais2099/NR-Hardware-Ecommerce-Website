@@ -1,0 +1,7 @@
+<article class="category-item">
+  <h2><%= category.title %></h2>
+  <div class="category-item-actions">
+    <a class="btn btn-alt" href="/admin/categories/<%= category.id %>">View & Edit</a>
+    <button class="btn btn-alt" data-categoryid="<%= category.id %>" data-csrf="<%= locals.csrfToken %>">Delete</button>
+  </div>
+</article>

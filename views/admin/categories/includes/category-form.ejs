@@ -1,0 +1,15 @@
+<form class="form-alt" action="<%= submitPath %>" method="POST">
+  <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
+  <p>
+    <label for="title">Title</label>
+    <input type="text" id="title" name="title" value="<%= category.title %>" required>
+  </p>
+  <p>
+    <label for="description">Description</label>
+    <textarea id="description" name="description" rows="7" required><%= category.description %></textarea>
+  </p>
+  <p>
+    <button type="reset" class="btn btn-alt">Reset</button>
+    <button class="btn">Submit</button>
+  </p>
+</form>

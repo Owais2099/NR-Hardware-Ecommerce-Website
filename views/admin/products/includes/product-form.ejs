@@ -1,0 +1,59 @@
+<form class="form-alt" action="<%= submitPath %>?_csrf=<%= locals.csrfToken %>" method="POST" enctype="multipart/form-data">
+  <p>
+    <label for="title">Title</label>
+    <input type="text" id="title" name="title" value="<%= product.title %>" required>
+  </p>
+  <div id="image-upload-control">
+    <p>
+      <label for="image">Image</label>
+      <input type="file" id="image" name="image" accept="image/png, image/jpg" <% if (imageRequired) { %> required <% } %>>
+    </p>
+
+    <img src="" alt="Selected Image">
+  </div>
+  <p>
+    <label for="category_id">Select Category</label>
+    <select id="category_id" name="category_id" required>
+      <% for (const category of categories) { %>
+        <% if (product.category_id && product.category_id === category.id) { %>
+          <option value="<%= category.id %>" selected><%= category.title %></option>
+        <% } else { %>
+          <option value="<%= category.id %>"><%= category.title %></option>
+        <% } %>
+      <% } %>
+    </select>
+  </p>
+  <p>
+    <label for="summary">Summary</label>
+    <input type="text" id="summary" name="summary" maxlength="250" value="<%= product.summary %>" required>
+  </p>
+  <p>
+    <label for="price">Price</label>
+    <input type="number" id="price" name="price" min="0.01" step="0.01" value="<%= product.price %>" required>
+  </p>
+  <p>
+    <label for="unit_id">Select Measurement Unit</label>
+    <select id="unit_id" name="unit_id" required>
+      <% for (const unit of units) { %>
+        <% if (product.unit_id && product.unit_id === unit.id) { %>
+          <option value="<%=unit.id%>" selected><%=unit.title%> (<%=unit.abbreviation%>)</option>
+        <% } else { %>
+          <option value="<%=unit.id%>"><%=unit.title%> (<%=unit.abbreviation%>)</option>
+        <% } %>
+      <% } %>
+    </select>
+  </p>
+  <p>
+    <label for="stock">Stock</label>
+    <input type="number" id="stock" name="stock" min="0" step="1" value="<%= product.stock %>" required>
+  </p>
+  <p>
+    <label for="description">Description</label>
+    <textarea id="description" name="description" rows="7" required><%= product.description %></textarea>
+  </p>
+
+  <p>
+    <button type="reset" class="btn btn-alt">Reset</button>
+    <button class="btn">Submit</button>
+  </p>
+</form>

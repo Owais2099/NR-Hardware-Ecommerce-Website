@@ -1,0 +1,40 @@
+<article class="order-item">
+  <header class="order-summary">
+    <h2><span class="order-item-price">$<%= order.totalPrice %></span> - <%= order.orderedOn %></h2>
+    <p><span class="badge"><%= order.status.toUpperCase() %></span></p> 
+  </header>
+
+  <section class="order-details">
+    <% if (locals.isAdmin) { %>
+      <address>
+        <p><a href="mailto:<%= order.userData.email %>"><%= order.userData.name %></a></p>
+        <p>Phone: <%= order.userData.phone %></p>
+        <p>Address: <%= order.userData.address %> (<%= order.userData.postalCode %> <%= order.userData.city %>)</p>
+      </address>
+    <% } %>
+    <ul>
+      <% for (const item of order.productItems) { %>
+        <li><%= item.product.title %> - $<%= item.totalPrice %> ($<%= item.product.price %> x <%= item.quantity %>)</li>
+      <% } %>
+    </ul>
+  </section>
+
+  <% if (locals.isAdmin) { %>
+    <section class="order-actions">
+      <form>
+        <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
+        <input type="hidden" name="orderid" value="<%= order.id %>">
+        <select name="status">
+          <% for (const status of statuses) { %>
+            <% if (order.status_id && order.status_id === status.id) { %>
+              <option value="<%= status.id %>" data-statustitle="<%= status.title %>" selected><%= status.title %></option>
+            <% } else { %>
+              <option value="<%= status.id %>" data-statustitle="<%= status.title %>"><%= status.title %></option>
+            <% } %>
+          <% } %>
+        </select>
+        <button class="btn btn-alt">Update</button>
+      </form>
+    </section>
+  <% } %>
+</article>

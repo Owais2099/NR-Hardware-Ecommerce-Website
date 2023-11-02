@@ -1,0 +1,25 @@
+<%- include('../../shared/includes/head', {pageTitle: 'Manage Categories'}) %>
+<link rel="stylesheet" href="/styles/categories.css">
+<script src="/scripts/category-management.js" defer></script>
+</head>
+<body>
+  <%- include('../../shared/includes/header') %>
+  <main>
+    <h1>Product Category Administration</h1>
+    <section>
+      <h2>Manage Categories</h2>
+      <p>
+        <a href="/admin/categories/new" class="btn">Add Category</a>
+      </p>
+    </section>
+    <section>
+      <ul id="categories-list">
+        <% for (const category of categories) { %>
+          <li>
+            <%- include('includes/category-item', { category: category }) %>
+          </li>
+        <% } %>
+      </ul>
+    </section>
+  </main>
+  <%- include('../../shared/includes/footer') %>

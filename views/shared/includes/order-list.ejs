@@ -1,0 +1,11 @@
+<ol>
+  <% if (orders.length === 0) { %>
+    <h3 class="orders-fallback">No Orders yet! <% if(!locals.isAdmin) { %><a href="/products">Shop Now!</a><% } %> </h2>
+  <% } else { %>  
+    <% for (const order of orders) { %>
+      <li>
+        <%- include('order-item', { order: order }) %>
+      </li>
+    <% } %>
+  <% } %>
+</ol>

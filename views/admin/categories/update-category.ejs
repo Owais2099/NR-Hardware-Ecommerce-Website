@@ -1,0 +1,10 @@
+<%- include('../../shared/includes/head', {pageTitle: 'Update Category'}) %>
+<link rel="stylesheet" href="/styles/forms.css">
+</head>
+<body>
+  <%- include('../../shared/includes/header') %>
+  <main>
+    <h1>Update Category</h1>
+    <%- include('includes/category-form', { submitPath: '/admin/categories/' + category.id, category: category }) %>
+  </main>
+  <%- include('../../shared/includes/footer') %>
