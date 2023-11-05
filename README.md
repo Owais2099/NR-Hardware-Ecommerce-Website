@@ -16,7 +16,7 @@ To get started with our hardware e-commerce platform, follow these steps:
 
 1. **Clone the Repository**: Run the following command to create a copy:
 ````
-git clone https://github.com/Owais2099/NR-Hardware-Ecommerce-Website/tree/main
+git clone https://github.com/Owais2099/NR-Hardware-Ecommerce-Website.git
 ````
 2. **Install Dependencies**: Run the following command to install all required dependencies:
 ````
