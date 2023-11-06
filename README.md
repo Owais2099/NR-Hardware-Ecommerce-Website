@@ -29,10 +29,6 @@ git clone https://github.com/Owais2099/NR-Hardware-Ecommerce-Website.git
 npm run initDB
 ```
 
-- MySQL database is initialized based on the blueprint shown below:
-  ![NR Hardware Database Model](screenshots/NR-Hardware-Database-Model.png)
-  **Note:** All columns are marked as `NOT NULL`, and each table has an `id` column, which serves as the primary key and auto-increments. Foreign keys are indicated with arrows for reference.
-
 4. **Install Dependencies**: Run the following command to install all required dependencies:
 
 ```
@@ -114,6 +110,12 @@ The repository contains the files and folders detailed below:
 - **_README.md_**: this file.
 
 ---
+
+## Database Structure
+
+MySQL database is initialized based on the blueprint shown below:
+![NR Hardware Database Model](screenshots/NR-Hardware-Database-Model.png)
+**Note:** All columns are marked as `NOT NULL`, and each table has an `id` column, which serves as the primary key and auto-increments. Foreign keys are indicated with arrows for reference.
 
 ## 📔 Features
 
