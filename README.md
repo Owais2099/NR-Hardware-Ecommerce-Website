@@ -20,24 +20,24 @@ To get started with our hardware e-commerce platform, follow these steps:
 git clone https://github.com/Owais2099/NR-Hardware-Ecommerce-Website.git
 ```
 
-2. **Environment Variables**: To configure environment variables, modify the values in the `.env` file You can utilize the default values provided and modify the variables for database configuration to match your specific settings.
-   **Note:** It is strongly recommended not to upload the `.env` file to GitHub; it should be included in the `.gitignore` file. However, for development and to showcase the website's functionality, a sample .env file with dummy values is included. Ensure that you use more secure secret keys for production and avoid sharing them with others.
+2. **Environment Variables**: To configure environment variables, modify the values in the `.env` file. You can utilize the default values provided for testing and only modify the variables for database configuration to match your specific settings.
+   **Note:** It is strongly recommended **NOT** to upload the `.env` file to GitHub; it should be included in the `.gitignore` file. However, for development and to showcase the website's functionality, a sample .env file with dummy values is included. Ensure that you use more secure secret keys for production and avoid sharing them with others.
+
+3. **Set up Database**: Run the following command for initializing database after setting up `environment variables for database` and making sure that `MySQL server is up and running`:
+
+```
+npm run initDB
+```
+
+- MySQL database is initialized based on the blueprint shown below:
+  ![NR Hardware Database Model](screenshots/NR-Hardware-Database-Model.png)
+  **Note:** All columns are marked as `NOT NULL`, and each table has an `id` column, which serves as the primary key and auto-increments. Foreign keys are indicated with arrows for reference.
+
+4. **Install Dependencies**: Run the following command to install all required dependencies:
 
 ```
 npm install
 ```
-
-3. **Install Dependencies**: Run the following command to install all required dependencies:
-
-```
-npm install
-```
-
-4. **Set up Database**: Create a new MySQL database based on the blueprint shown below:
-   ![NR Hardware Database Model](screenshots/NR-Hardware-Database-Model.png)
-   **Note:** All columns are marked as `NOT NULL`, and each table has an `id` column, which serves as the primary key and auto-increments. Foreign keys are indicated with arrows for reference.
-
-   - Make sure to keep table's and table_column's name same in your database so that you do not have to make changes to model files, and the application runs smoothly.
 
 5. **Start the Application**: Launch the application using:
 
@@ -51,7 +51,27 @@ npm start
 http://localhost:3000
 ```
 
-7. **Admin Privileges**: To grant admin privileges and access to the admin panel after signing up, set the `isAdmin` value to `1` for that specific user in the users table in the database.
+### Test User Accounts
+
+Here are three test user accounts for trying out different roles in the application:
+
+1. **Admin Account**
+
+   - Email: admin@gmail.com
+   - Password: password10
+   - Privileges: Admin (Can access admin panel)
+
+2. **Customer Account (John Cena)**
+
+   - Email: john@gmail.com
+   - Password: password10
+
+3. **Customer Account (Tom Cruise)**
+
+   - Email: tom@gmail.com
+   - Password: password10
+
+   **Note**: To grant admin privileges and access to the admin panel after signing up, set the value of `isAdmin` to `1` for the specific user in the users table of the database.
 
 ---
 
@@ -81,9 +101,13 @@ The repository contains the files and folders detailed below:
 
 - **_views_**: contains files that define the structure and layout of web pages, helping to generate dynamic HTML content with [ejs templating engine](https://ejs.co/) and render it to the client's browser.
 
+- **_.env_**: The .env file is used to store and manage environment variables for the application. (Should **NOT** be uploaded on github as it contains sensitive data)
+
 - **_.gitignore_**: used to indicate the files and folders to be ignored by the version control system _Git_.
 
 - **_app.js_**: main entry point to the application, with the set up of our server with _**express**_ and calls (via `import`) to the different _npm_ packages used in the project.
+
+- **_initDB.js_**: responsible for initializing the database and creating necessary tables when running the application.
 
 - **_package.json_**: contains information about the project (name, version, etc.) including the packages installed as dependencies.
 

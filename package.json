@@ -7,7 +7,8 @@
     "node": "21.x"
   },
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon app.js",
+    "initDB": "node initDB.js"
   },
   "keywords": [],
   "author": "Muhammad Owais",
