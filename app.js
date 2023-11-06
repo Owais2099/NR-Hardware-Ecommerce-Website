@@ -1,5 +1,7 @@
 const path = require("path");
 
+const dotenv = require("dotenv");
+dotenv.config();
 const express = require("express");
 const cookieParser = require("cookie-parser");
 const expressSession = require("express-session");
@@ -51,4 +53,5 @@ app.use(notFoundMiddleware);
 
 app.use(errorHandlerMiddleware);
 
-app.listen(3000);
+const PORT = process.env.PORT;
+app.listen(PORT);

@@ -78,7 +78,7 @@ class Product {
   static async findMultipleProductsById(productIds) {
     if (!productIds || productIds.length === 0) {
       return [];
-  }
+    }
     const placeholders = productIds.map(() => "?").join(", ");
     const query = `SELECT * FROM products WHERE id IN (${placeholders})`;
 
@@ -90,7 +90,10 @@ class Product {
   }
 
   updateImageData() {
-    this.imagePath = `product-data/images/${this.image}`;
+    this.imagePath = path.join(
+      process.env.IMAGE_UPLOAD_DESTINATION,
+      this.image
+    );
     this.imageUrl = `/products/assets/images/${this.image}`;
   }
 
@@ -129,12 +132,12 @@ class Product {
   }
 
   async removeImage() {
-    const imagePath = path.join(
-      __dirname,
-      "../product-data/images",
-      this.image
-    );
-    fs.unlink(imagePath);
+    const imagePath = path.join(process.env.IMAGE_UPLOAD_DESTINATION, this.image);
+    try {
+      await fs.unlink(imagePath);
+    } catch (error) {
+      console.error(`Error removing image: ${error.message}`);
+    }
   }
 
   removeProduct() {

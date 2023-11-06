@@ -3,10 +3,10 @@ const MySQLStore = require("express-mysql-session")(expressSession);
 
 function createSessionStore() {
   const store = new MySQLStore({
-    host: "localhost",
-    database: "nr_hardware",
-    user: "root",
-    password: "abcde12345",
+    host: process.env.DB_HOST,
+    database: process.env.DB_NAME,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
   });
 
   return store;
@@ -14,7 +14,7 @@ function createSessionStore() {
 
 function createSessionConfig() {
   return {
-    secret: "nr-hardware-super-secret",
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     store: createSessionStore(),

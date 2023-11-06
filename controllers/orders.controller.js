@@ -1,6 +1,4 @@
-const stripe = require("stripe")(
-  "sk_test_51O68zNHswSpMTg6ORNluFrJCfgLyrDfzid1i91h8KT1iENzfFS28Ai23ocAPPg9MgcqmCQwtM3nvCKTu9WW71vAC00vsk6QLmo"
-);
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 const Order = require("../models/order.model");
 
@@ -49,8 +47,8 @@ async function addOrder(req, res, next) {
       };
     }),
     mode: "payment",
-    success_url: `http://localhost:3000/orders/success`,
-    cancel_url: `http://localhost:3000/orders/failure`,
+    success_url: process.env.STRIPE_SUCCESS_URL,
+    cancel_url: process.env.STRIPE_CANCEL_URL,
   });
 
   res.redirect(303, session.url);
@@ -59,7 +57,6 @@ async function addOrder(req, res, next) {
 async function clearCart(req) {
   return new Promise(function (resolve, reject) {
     req.session.cart = null;
-    // Save the session to ensure the cart is cleared
     req.session.save((error) => {
       if (error) {
         reject(error);
