@@ -117,6 +117,8 @@ MySQL database is initialized based on the blueprint shown below:
 ![NR Hardware Database Model](screenshots/NR-Hardware-Database-Model.png)
 **Note:** All columns are marked as `NOT NULL`, and each table has an `id` column, which serves as the primary key and auto-increments. Foreign keys are indicated with arrows for reference.
 
+---
+
 ## 📔 Features
 
 ### User Features
