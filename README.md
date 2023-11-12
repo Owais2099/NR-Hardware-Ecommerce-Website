@@ -23,16 +23,16 @@ git clone https://github.com/Owais2099/NR-Hardware-Ecommerce-Website.git
 2. **Environment Variables**: To configure environment variables, modify the values in the `.env` file. You can utilize the default values provided for testing and only modify the variables for database configuration to match your specific settings.
    **Note:** It is strongly recommended **NOT** to upload the `.env` file to GitHub; it should be included in the `.gitignore` file. However, for development and to showcase the website's functionality, a sample .env file with dummy values is included. Ensure that you use more secure secret keys for production and avoid sharing them with others.
 
-3. **Set up Database**: Run the following command for initializing database after setting up `environment variables for database` and making sure that `MySQL server is up and running`:
-
-```
-npm run initDB
-```
-
-4. **Install Dependencies**: Run the following command to install all required dependencies:
+3. **Install Dependencies**: Run the following command to install all required dependencies:
 
 ```
 npm install
+```
+
+4. **Set up Database**: Run the following command for initializing database after setting up `environment variables for database` and making sure that `MySQL server is up and running`:
+
+```
+npm run initDB
 ```
 
 5. **Start the Application**: Launch the application using:
